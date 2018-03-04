@@ -11,7 +11,6 @@ public class CreateObjTest{
 	 * 传统的测试对象方法
 	 * 用于测试对象创建
 	 */
-	
 	@Test
 	public void testTradion(){
 		CreateObj creobj = new CreateObj();
@@ -58,5 +57,14 @@ public class CreateObjTest{
         CreateObj staticFactory =
                 (CreateObj) context.getBean("instance");
         staticFactory.sayHello();
+    }
+    
+    /**
+     * 用于查看bean创建过程中是否调用无参构造函数
+     */
+    @Test
+    public void WhenCreateObject(){
+    	ApplicationContext context = 
+    			new ClassPathXmlApplicationContext("applicationContext.xml");
     }
 }
