@@ -19,19 +19,15 @@ public class Person
 	private Map maps;
 	private Properties properties;
 	
-	public Person() {
-		super();
+	//默认构造函数要有
+	public Person(){
+		
 	}
-
-	public Person(Long pid, String pname, Student students, List lists, Set sets, Map maps, Properties properties) {
-		super();
+	
+	public Person(Long pid, Student students) {
+		//带参构造函数
 		this.pid = pid;
-		this.pname = pname;
 		this.students = students;
-		this.lists = lists;
-		this.sets = sets;
-		this.maps = maps;
-		this.properties = properties;
 	}
 	
 	public Long getPid() {

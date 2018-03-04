@@ -4,15 +4,6 @@ public class Student {
 	
 	private String number;
 
-	public Student() {
-		super();
-	}
-
-	public Student(String number) {
-		super();
-		this.number = number;
-	}
-
 	public String getNumber() {
 		return number;
 	}
