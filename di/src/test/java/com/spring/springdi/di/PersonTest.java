@@ -1,6 +1,5 @@
 package com.spring.springdi.di;
 
-
 import org.junit.*;
 import org.junit.Assert.*;
 import org.springframework.context.ApplicationContext;
@@ -21,5 +20,16 @@ public class PersonTest{
         System.out.println(person.getPname());//vae
         person.setPname("Murphy");
         System.out.println(person.getPname());//vae
+    }
+    
+    /**
+    * 利用 构造函数 给对象赋值
+    */
+    @Test
+    public void testConstrutor(){
+        ApplicationContext context = 
+                new ClassPathXmlApplicationContext("applicationContext.xml");
+        Person person = (Person) context.getBean("person_con");
+        System.out.println(person.getPid());//1
     }
 }

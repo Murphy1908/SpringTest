@@ -14,7 +14,18 @@ public class Person
     private Set sets;
     private Map maps;
     private Properties properties;
+    
+    //切记：默认构造函数要有
+    public Person(){
 
+    }
+
+    public Person(Long pid, Student students) {
+        //带参构造函数
+        this.pid = pid;
+        this.students = students;
+    }
+    
     public Long getPid() {
         return pid;
     }
