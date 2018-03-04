@@ -67,4 +67,30 @@ public class CreateObjTest{
     	ApplicationContext context = 
     			new ClassPathXmlApplicationContext("applicationContext.xml");
     }
+    
+    /**
+     * 用于验证单例、多例模式
+     */
+    @Test
+    public void test_scope_single_CreateObject(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        CreateObj Obj1 = (CreateObj) context.getBean("createObj");
+        CreateObj Obj2 = (CreateObj) context.getBean("createObj");
+        System.out.println(Obj1.equals(Obj2)); //true
+    }
+    
+    /**
+     * Spring容器初始化和销毁
+     */
+    @Test
+    public void testSpringLifeCycle(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        SpringLifeCycle hello = (SpringLifeCycle) context.getBean("springLifeCycle");
+         
+        hello.sayHello();
+         
+        //销毁spring容器
+        ClassPathXmlApplicationContext classContext = (ClassPathXmlApplicationContext) context;
+        classContext.close();
+    }
 }

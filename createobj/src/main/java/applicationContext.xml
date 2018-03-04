@@ -10,7 +10,7 @@
     lazy-init:懒加载，"default/false"在启动Spring容器时创建对象（默认情况）
     			"true"在context.getBean时才要创建对象
       -->
-    <bean id="createObj" lazy-init="true" class="com.spring.createobj.createobj.CreateObj" ></bean>  
+    <bean id="createObj" lazy-init="false" scope="prototype" class="com.spring.createobj.createobj.CreateObj" ></bean>  
     <!-- 别名属性  name：和bean的 id 属性对应 -->
     <alias name="createObj" alias="createObj2"/>
     
@@ -28,4 +28,7 @@
       --> 
     <bean id="instanceFactory" class="com.spring.createobj.createobj.HelloInstanceFactory"></bean> 
     <bean id="instance" factory-bean="instanceFactory" factory-method="getInstance"></bean>
+    
+    <!-- 生命周期 -->
+    <bean id="springLifeCycle" init-method="init" destroy-method="destroy" class="com.spring.createobj.createobj.SpringLifeCycle"></bean>
 </beans>
