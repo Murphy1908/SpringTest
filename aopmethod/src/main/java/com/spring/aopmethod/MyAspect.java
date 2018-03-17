@@ -20,4 +20,7 @@ public class MyAspect {
         System.out.println("最终通知");
     }
     
+    public void myAfterThrowing(JoinPoint joinPoint,Throwable e){
+        System.out.println("抛出异常通知 ： " + e.getMessage());
+    }
 }

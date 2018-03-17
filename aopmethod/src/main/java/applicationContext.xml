@@ -51,8 +51,16 @@
         <aop:after-returning method="myAfterReturning" pointcut-ref="myPointCut" returning="ret" />
              
         <!-- 3.3 最终通知 -->        
-        <aop:after method="myAfter" pointcut-ref="myPointCut"/>  
-             
+        <aop:after method="myAfter" pointcut-ref="myPointCut"/> 
+         
+        <!-- 3.4 抛出异常
+                <aop:after-throwing method="" pointcut-ref="" throwing=""/>
+                    throwing ：通知方法的第二个参数名称
+                通知方法格式：public void myAfterThrowing(JoinPoint joinPoint,Throwable e){
+                    参数1：连接点描述对象
+                    参数2：获得异常信息，类型Throwable ，参数名由throwing="e" 配置
+        -->
+        <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointCut" throwing="e"/>  
         </aop:aspect>
     </aop:config>
     
