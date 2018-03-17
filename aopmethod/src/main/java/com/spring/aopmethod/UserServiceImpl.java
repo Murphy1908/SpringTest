@@ -5,7 +5,6 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void addUser(User user) {
 		// TODO Auto-generated method stub
-		int i = 1/0;
 		System.out.println("增加 User");
 	}
 
