@@ -13,7 +13,8 @@ public class AppTest{
 	@Test
     public void testAopAnno(){
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserService useService = (UserService) context.getBean("userService");
-        useService.addUser();
+        UserService userService = (UserService) context.getBean("userService");
+        userService.addUser();
+        userService.deleteUser();
     }
 }
