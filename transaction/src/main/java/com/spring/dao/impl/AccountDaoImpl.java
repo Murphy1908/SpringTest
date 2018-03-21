@@ -1,6 +1,7 @@
 package com.spring.dao.impl;
 
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Component;
 
 import com.spring.dao.AccountDao;
 

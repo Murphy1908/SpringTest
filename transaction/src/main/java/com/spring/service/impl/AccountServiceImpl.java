@@ -1,16 +1,21 @@
 package com.spring.service.impl;
 
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.DefaultTransactionDefinition;
-import org.springframework.transaction.support.TransactionCallbackWithoutResult;
-import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.spring.dao.AccountDao;
 import com.spring.service.AccountService;
 
+@Transactional(propagation=Propagation.REQUIRED, isolation=Isolation.DEFAULT)
+@Service("accountService")
 public class AccountServiceImpl implements AccountService {
 
+	@Autowired
+	@Qualifier("accountDao")
 	private AccountDao accountDao;
 	//private TransactionTemplate transactionTemplate; 
 	
