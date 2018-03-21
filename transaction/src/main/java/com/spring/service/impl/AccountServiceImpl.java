@@ -12,21 +12,21 @@ import com.spring.service.AccountService;
 public class AccountServiceImpl implements AccountService {
 
 	private AccountDao accountDao;
-	private TransactionTemplate transactionTemplate; 
+	//private TransactionTemplate transactionTemplate; 
 	
 	public void setAccountDao(AccountDao accountDao){
 		this.accountDao = accountDao;
 	}
 	
-	public void setTransactionTemplate(TransactionTemplate transactionTemplate){
+/*	public void setTransactionTemplate(TransactionTemplate transactionTemplate){
 		this.transactionTemplate = transactionTemplate;
-	}
+	}*/
 	
 	@Override
 	public void transfer(String outer, String inner, int money) {
 		// TODO Auto-generated method stub
 		
-		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+/*		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
 			
 			@Override
 			protected void doInTransactionWithoutResult(TransactionStatus arg0) {
@@ -35,6 +35,9 @@ public class AccountServiceImpl implements AccountService {
 				int i = 1/0;
 				accountDao.in(inner, money);
 			}
-		});
+		});*/
+		accountDao.out(outer, money);
+		//int i = 1/0;
+		accountDao.in(inner, money);
 	}
 }
